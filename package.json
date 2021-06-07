@@ -1,0 +1,27 @@
+{
+  "name": "eth-tx-project-info-server",
+  "version": "1.0.0",
+  "description": "A server for getting eth tx project info.",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danfinlay/eth-tx-project-info-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danfinlay/eth-tx-project-info-server/issues"
+  },
+  "homepage": "https://github.com/danfinlay/eth-tx-project-info-server#readme",
+  "devDependencies": {
+    "@truffle/config": "^1.2.42",
+    "@truffle/decoder": "^4.5.15",
+    "@types/jest": "^26.0.23",
+    "jest": "^27.0.4",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.2"
+  }
+}
