@@ -4,8 +4,14 @@
   "description": "A server for getting eth tx project info.",
   "main": "dist/src/index.js",
   "scripts": {
+    "lint": "eslint .",
+    "start": "ts-node-dev ./bin/serve.ts",
+    "prepare": "tsc",
     "test": "jest"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/danfinlay/eth-tx-project-info-server.git"
@@ -17,17 +23,32 @@
   },
   "homepage": "https://github.com/danfinlay/eth-tx-project-info-server#readme",
   "devDependencies": {
-    "@truffle/config": "^1.2.42",
-    "@truffle/decoder": "^4.5.15",
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.12",
     "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": ">=6",
     "jest": "^27.0.4",
+    "lint-staged": ">=10",
+    "prettier": "^2.3.1",
     "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.6",
     "typescript": "^4.3.2"
   },
   "dependencies": {
     "@truffle/compile-solidity": "^5.3.5",
+    "@truffle/config": "^1.2.42",
+    "@truffle/decoder": "^4.5.15",
     "@truffle/source-fetcher": "^0.4.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1"
+  },
+  "lint-staged": {
+    "*.js": "yarn lint --cache --fix",
+    "*.ts": "yarn lint --cache --fix"
   }
 }

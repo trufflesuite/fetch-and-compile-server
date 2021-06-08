@@ -1,7 +1,8 @@
-const { Compile } = require("@truffle/compile-solidity");
+import { Compile } from "@truffle/compile-solidity";
+
 import type TruffleConfig from "@truffle/config";
 import type { WorkflowCompileResult } from "@truffle/compile-common";
-import * as Common from "@truffle/compile-common";
+
 import * as Decoder from "@truffle/decoder";
 import * as Codec from "@truffle/codec";
 import {
@@ -20,9 +21,11 @@ export async function fetchExternal({
   config,
   address
 }: FetchExternalOptions): Promise<Decoder.ProjectInfo> {
-  const { contractName, result } = await fetchAndCompile({ config, address });
+  const { result } = await fetchAndCompile({ config, address });
 
-  const projectInfo = { compilations: Codec.Compilations.Utils.shimCompilations(result.compilations)};
+  const projectInfo = {
+    compilations: Codec.Compilations.Utils.shimCompilations(result.compilations)
+  };
   return projectInfo;
 }
 
@@ -140,22 +143,25 @@ async function fetchAndCompile(options: {
   throw new Error("Unable to find");
 }
 
-async function findContract<Contract extends Common.CompiledContract>(options: {
-  contractName: string | undefined;
-  contracts: Contract[];
-}): Promise<Contract> {
-  const { contractName, contracts } = options;
+/*
+ * TODO probably remove this; but leaving commented in case we need it
+ */
+// async function findContract<Contract extends CompiledContract>(options: {
+//   contractName: string | undefined;
+//   contracts: Contract[];
+// }): Promise<Contract> {
+//   const { contractName, contracts } = options;
 
-  // simple case; we get the contract name and it matches exactly one contract
-  if (contractName) {
-    const matching = contracts.filter(
-      contract => contract.contractName === contractName
-    );
+//   // simple case; we get the contract name and it matches exactly one contract
+//   if (contractName) {
+//     const matching = contracts.filter(
+//       contract => contract.contractName === contractName
+//     );
 
-    if (matching.length === 1) {
-      return matching[0];
-    }
-  }
+//     if (matching.length === 1) {
+//       return matching[0];
+//     }
+//   }
 
-  throw new Error(`Contract ${contractName} not loaded into @truffle/db.`);
-}
+//   throw new Error(`Contract ${contractName} not loaded into @truffle/db.`);
+// }

@@ -3,7 +3,7 @@
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
-    "lib": ["esnext"], 
+    "lib": ["esnext"],
     "skipLibCheck": true,
     "target": "es6",
     "moduleResolution": "node",
@@ -18,7 +18,7 @@
     "types": [
       "jest",
       "node"
-    ],
+    ]
   },
   "include": [
     "src/**/*",
