@@ -17,6 +17,8 @@ Copy the `sample.env` file to `.env`, and fill in an infura URL, etherscan key, 
 
 To host as a server, run `yarn start`.
 
+The server accepts requests at `/tx`, with query parameters `from`, `to`, and `data` (per ethereum transaction fields).
+
 ## Testing
 
 `yarn test`
