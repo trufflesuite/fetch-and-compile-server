@@ -4,6 +4,7 @@
   "description": "A server for getting eth tx project info.",
   "main": "dist/src/index.js",
   "scripts": {
+    "obtain": "ts-node ./bin/obtain.ts",
     "lint": "eslint .",
     "start": "ts-node-dev ./bin/serve.ts",
     "prepare": "tsc",
@@ -44,6 +45,8 @@
     "@truffle/config": "^1.2.42",
     "@truffle/decoder": "^4.5.15",
     "@truffle/source-fetcher": "^0.4.1",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1"
   },
