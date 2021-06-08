@@ -65,5 +65,5 @@ describe("getProjectInfoForTransaction", () => {
     // console.log(JSON.stringify(decoding, null, 2));
     expect(decoding).toBeTruthy();
 
-  }, 15000);
+  }, 20000);
 });
