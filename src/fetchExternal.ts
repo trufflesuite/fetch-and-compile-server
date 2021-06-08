@@ -120,7 +120,7 @@ async function fetchAndCompile(options: {
         compilers: {
           solc: {
             ...options,
-            version: options.version.split("+")[0].split("v").join()
+            version: options.version.split("+")[0].split("v").join("")
           }
         },
         quiet: true
