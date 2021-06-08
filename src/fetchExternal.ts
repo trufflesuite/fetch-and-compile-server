@@ -114,13 +114,14 @@ async function fetchAndCompile(options: {
       break;
     }
 
-    
-
     //compile the sources
     const externalConfig = config
       .with({
         compilers: {
-          solc: { ...options, version: options.version.split('+')[0] }
+          solc: {
+            ...options,
+            version: options.version.split("+")[0].split("v").join()
+          }
         },
         quiet: true
       })
