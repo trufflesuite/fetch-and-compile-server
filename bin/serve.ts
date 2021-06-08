@@ -31,6 +31,11 @@ async function handle(req, res) {
         network_id: 1
       }
     },
+    compilers: {
+      solc: {
+        docker: true
+      }
+    },
     network: "mainnet",
     // May need to make a more proper truffle config, will see. TODO
     sourceFetchers: ["etherscan"],
