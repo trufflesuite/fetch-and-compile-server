@@ -13,11 +13,15 @@ Can be used to represent complex tx parameters, even nested structs.
 
 `yarn` to install dependencies.
 
+Make sure your system has Docker installed.
+
 Copy the `sample.env` file to `.env`, and fill in an infura URL, etherscan key, and desired port to serve on, to use as a server.
 
 To host as a server, run `yarn start`.
 
 The server accepts requests at `/tx`, with query parameters `from`, `to`, and `data` (per ethereum transaction fields).
+
+To improve performance by pre-fetching solidity compilers, you can run `yarn obtain`.
 
 ## Testing
 
