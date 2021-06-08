@@ -13,7 +13,9 @@ Can be used to represent complex tx parameters, even nested structs.
 
 `yarn` to install dependencies.
 
-Copy the `sample.env` file to `.env`, and fill in an infura URL and etherscan key.
+Copy the `sample.env` file to `.env`, and fill in an infura URL, etherscan key, and desired port to serve on, to use as a server.
+
+To host as a server, run `yarn start`.
 
 ## Testing
 
