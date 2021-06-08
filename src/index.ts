@@ -1,9 +1,6 @@
 import { fetchExternal } from "./fetchExternal";
 import { forProject } from "@truffle/decoder";
-import type { Transaction } from "@truffle/decoder";
 import TruffleConfig from "@truffle/config";
-
-const provider; // TODO: Make this work
 
 /**
  * 
@@ -28,39 +25,20 @@ We may be able to skip truffle-db, by writing a shim ourselves from the fetchExt
  */
 
 interface TxDecodeOpts {
-  txParams: Transaction;
+  to: string,
   networkId: string;
+  config: TruffleConfig;
 }
 
 export async function getProjectInfoForTransaction (opts: TxDecodeOpts) {
-
-  const config = TruffleConfig.default().merge({
-    networks: {
-      '1': {
-        url: process.env['MAINNET_URL'],
-        network_id: 1,
-      }
-    },
-    network: opts.networkId,
-    // May need to make a more proper truffle config, will see. TODO
-    sourceFetchers: ['etherscan'],
-    etherscan: {
-        apiKey: process.env['ETHERSCAN_KEY'],
-    }
-  });
-
-  if (!opts.txParams.to) {
-    throw new Error('contract creation txs not currently supported.')
-  }
-
+  
   // Fetch metadata from etherscan
   // db-kit fetchExternal src/utils/fetchExternal.ts
   // Saves to truffle-db in its own format
   const projectInfo = await fetchExternal({
-    address: opts.txParams.to,
-    config,
+    address: opts.to,
+    config: opts.config,
   });
-
 
   return projectInfo
 
