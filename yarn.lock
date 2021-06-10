@@ -764,10 +764,10 @@
   dependencies:
     cbor "^5.1.0"
 
-"@truffle/codec@^0.10.10-cheerios.0":
-  version "0.10.10-cheerios.0"
-  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.10.10-cheerios.0.tgz#29a3e72c5a92513730c7d39d225a98b36fe0361c"
-  integrity sha512-CZkoba9qAULf0vqXUKrv94ehSQJ+vypgpkTXLG87VZYXCEvoa2aAkDhWJnHznJX8Cqtsmxu7XcJYsSybsHh48g==
+"@truffle/codec@^0.10.10-cheerios.1":
+  version "0.10.10-cheerios.1"
+  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.10.10-cheerios.1.tgz#415e0379b70d04f6b063ed87d31d12b064ebc549"
+  integrity sha512-vmHo/VlFUSEVoMBcy2HC+zwRF8UhQUSfMgjfahatlRPIeULsfpZLk/Kl+RlZQk1Pmfpu0w1TnL8iTaWkf5ncag==
   dependencies:
     big.js "^5.2.2"
     bn.js "^5.1.3"
@@ -855,15 +855,15 @@
     debug "^4.3.1"
     glob "^7.1.6"
 
-"@truffle/decoder@^4.5.16-cheerios.0":
-  version "4.5.16-cheerios.0"
-  resolved "https://registry.yarnpkg.com/@truffle/decoder/-/decoder-4.5.16-cheerios.0.tgz#6e6e4949e56d0e9d144fe01f3defe221db142db1"
-  integrity sha512-uMzS3t3Csh3O4J7dtKtC/U89yUDV2V2IFT0W+/FX/mo/Kn25cU2tuNHSZRd3s2n9LVeyOCw/6e6az3+CgZnHyQ==
+"@truffle/decoder@^4.5.16-cheerios.1":
+  version "4.5.16-cheerios.1"
+  resolved "https://registry.yarnpkg.com/@truffle/decoder/-/decoder-4.5.16-cheerios.1.tgz#dd042497caeca42fe8f85f68d3779184bbb311f3"
+  integrity sha512-WBnu1XKZ7R4zxSE2Sq/1OGrrTl/vUCp+UwrfA0BF8wriEBcJDW6QlhkaABbF9KVO4QZlVqpUhHnqLz8ROHVASQ==
   dependencies:
     "@truffle/abi-utils" "^0.2.1"
-    "@truffle/codec" "^0.10.10-cheerios.0"
+    "@truffle/codec" "^0.10.10-cheerios.1"
     "@truffle/compile-common" "^0.7.7"
-    "@truffle/source-map-utils" "^1.3.44-cheerios.0"
+    "@truffle/source-map-utils" "^1.3.44-cheerios.1"
     bn.js "^5.1.3"
     debug "^4.3.1"
     web3 "1.3.6"
@@ -914,7 +914,7 @@
     debug "^4.3.1"
     web3-utils "1.3.6"
 
-"@truffle/source-map-utils@^1.3.44-cheerios.0":
+"@truffle/source-map-utils@^1.3.44-cheerios.1":
   version "1.3.44-decoder-no-web3.0"
   resolved "https://registry.yarnpkg.com/@truffle/source-map-utils/-/source-map-utils-1.3.44-decoder-no-web3.0.tgz#40c6745258540be568e9fe045a0d402fdafa7d37"
   integrity sha512-epfoeU1wPa6O//pN39JsrI4tXWqGNfEueKPSUAaiZY1EiNuE52eb8l3lECAswd6+uzTLShCGzxkvyn6Q2gv73w==
