@@ -1,14 +1,13 @@
 import * as Codec from "@truffle/codec";
 
-export type SerializedCalldataDecoding = unknown;
-
 export function serializeCalldataDecoding(
-  decoding: Codec.CalldataDecoding
-): SerializedCalldataDecoding {
+  decoding: Codec.CalldataDecoding<Codec.Format.DefaultConfig>
+): Codec.CalldataDecoding<Codec.Format.SerialConfig> {
   switch (decoding.kind) {
     case "function": {
       return {
         ...decoding,
+        // @ts-ignore cause hackathon
         class: Codec.Format.Utils.Serial.serializeType(decoding.class),
         arguments: decoding.arguments.map(({ name, value }) => ({
           name,
@@ -19,6 +18,7 @@ export function serializeCalldataDecoding(
     case "constructor": {
       return {
         ...decoding,
+        // @ts-ignore cause hackathon
         class: Codec.Format.Utils.Serial.serializeType(decoding.class),
         arguments: decoding.arguments.map(({ name, value }) => ({
           name,
@@ -29,6 +29,7 @@ export function serializeCalldataDecoding(
     case "message": {
       return {
         ...decoding,
+        // @ts-ignore cause hackathon
         class: Codec.Format.Utils.Serial.serializeType(decoding.class)
       };
     }
