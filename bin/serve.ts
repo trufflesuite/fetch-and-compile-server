@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.get("/tx", handleTransaction);
 app.get("/txExtra", handleTransactionExtra);
+app.get("/status", (req, res) => res.sendStatus(200));
 console.log(`Starting on port ${process.env.PORT}`);
 
 app.listen(process.env.PORT);
