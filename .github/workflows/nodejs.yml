@@ -1,0 +1,57 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+    # long-lived branches
+    - main
+
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  check-lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm install -g yarn
+      - run: yarn install --ignore-scripts --frozen-lockfile --ignore-engines
+
+  run-tests:
+    strategy:
+      matrix:
+        platform:
+          - ubuntu-latest
+        node-version:
+          - 12.x
+          - 14.x
+        url:
+          - mainnet_https
+          # HACK no websockets cause it's causing tests to not exit
+          # - mainnet_wss
+        include:
+          - url: mainnet_https
+            url_secret: INFURA_MAINNET_HTTPS
+          # - url: mainnet_wss
+          #   url_secret: INFURA_MAINNET_WSS
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm install -g yarn
+
+      - run: yarn
+
+      - run: yarn ci
+        env:
+          ETHERSCAN_KEY: ${{ secrets.ETHERSCAN_KEY }}
+          MAINNET_URL: ${{ secrets[matrix.url_secret] }}
