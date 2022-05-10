@@ -1,7 +1,2 @@
-export {
-  GetProjectInfoForTransactionOptions,
-  getProjectInfoForTransaction
-} from "./getProjectInfoForTransaction";
-
-export { handleTransaction } from "./handleTransaction";
-export { handleTransactionExtra } from "./handleTransactionExtra";
+export { handleMultiple } from "./handleMultiple";
+export { handleSingle } from "./handleSingle";
